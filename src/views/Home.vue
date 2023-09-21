@@ -1,13 +1,13 @@
 <template>
     <div class="home">
-        <h1>Home</h1>
+        <h1>Home Page</h1>
         
     </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-    name: 'HomeView',
+    name: 'Home',
     components: {
     },
 }

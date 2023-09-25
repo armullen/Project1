@@ -7,6 +7,7 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link :to="{ name: 'About' }">About</router-link> |
+    <router-link :to="{ name: 'All Dogs' }">All Dogs</router-link> |
     <router-link :to="{ name: 'Bachelors' }">Bachelors</router-link> |
     <router-link :to="{ name: 'Bachelorettes' }">Bachelorettes</router-link>
   </div>

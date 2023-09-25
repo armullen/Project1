@@ -1,8 +1,9 @@
 import {createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Bachelors from '../views/Boys/Bachelors.vue'
-import Bachelorettes from '../views/Girls/Bachelorettes.vue'
+import AllDogs from "../views/all-dogs/index.vue";
+import Bachelors from '../views/boys/bachelors.vue'
+import Bachelorettes from '../views/girls/bachelorettes.vue'
 import SignUpForm from '../views/SignUpForm.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,6 +11,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'Home',
         component: Home
+    },
+    {
+        path: '/all-dogs',
+        name: 'All Dogs',
+        component: AllDogs
     },
     {
         path: '/about',

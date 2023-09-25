@@ -3,13 +3,13 @@
 <template>
     <form> 
         <label>Name</label>
-        <input type="text" required v-model="name" />
+        <input type="text" required />
         <label>Age</label>
-        <input type="number" required v-model="age" />
+        <input type="number" required />
         <label>Breed</label>
-        <input type="text" required v-model="breed" />
+        <input type="text" required />
         <label>Gender</label>
-        <select v-model="gender">
+        <select>
             <option value="male">Male</option>
             <option value="female">Female</option>
         </select>
@@ -18,7 +18,6 @@
 </template>
 
 <script lang="ts">
-import { ref, Component } from 'vue'
     export default {
   name: 'SignUpForm',
   components: {

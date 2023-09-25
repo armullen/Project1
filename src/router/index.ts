@@ -3,7 +3,7 @@ import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Bachelors from '../views/Boys/Bachelors.vue'
 import Bachelorettes from '../views/Girls/Bachelorettes.vue'
-import SignUpForm from '../components/SignUpForm.vue'
+import SignUpForm from '../views/SignUpForm.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {

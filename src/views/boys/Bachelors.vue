@@ -2,16 +2,22 @@
 
 <template>
     <h1>The Boys</h1>
-    <li v-for="dogs in Doglist" :key="dogs.id">
-        <router-link :to="{ name: 'DogDetails', params: { id: dogs.id }}">
-            {{ dogs.name }}
-        </router-link>
+    <!-- vfor loop to pick out the gender of "male" and list them with a link to the detail page -->
+    <li v-for="dogs in Doglist"> {{ dogs.name }} {{ dogs.breed }}
+        
     </li>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
 import DogList from '../../data/DogList.vue';
+
+export default {
+    setup() {
+        return {
+            DogList
+        }
+    }
+}
 
 
 </script>

@@ -1,5 +1,10 @@
-<template>
-    <h1>dogs</h1>
+<!-- <template>
+    <ul>
+        <li>
+            <li v-for='dog in dogs' :key="value">
+                {{ dog.name }}
+        </li>
+    </ul>
 </template>
 
 <script lang="ts">
@@ -25,4 +30,4 @@ import { ref } from 'vue'
       
     }
 
-</script>
+</script> -->

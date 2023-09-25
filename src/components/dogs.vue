@@ -9,6 +9,13 @@
 </template>
 
 
+<script lang="ts">
+    export type DogsComponent = { 
+        addDog: (dogInput: DogInput) => void,
+        removeDog: (dog: Dog) => void
+    }
+</script>
+
 <script setup lang="ts">
 
 

@@ -1,1 +1,1 @@
-export { default as Dogs } from './dogs.vue';
+export { default as Dogs, type DogsComponent } from './dogs.vue';

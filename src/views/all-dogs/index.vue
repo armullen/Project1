@@ -23,25 +23,24 @@
 
 <script setup lang="ts">
     import { ref } from "vue";
-    import { Dogs } from "../../components";   
+    import { Dogs, DogsComponent } from "../../components";   
 
     const name = ref("");
     const age = ref(0);
     const breed = ref("");
     const gender = ref("");
     
-    const dogComponent = ref(null);
+    const dogsComponent = ref<DogsComponent>();
 
     const onAddDogClick = () => {
 
         if(!name.value || !breed.value || !gender.value ) {
             alert("Please fill out all fields");
             return;
-        }
+        } 
 
-        const dogs = dogComponent.value as typeof Dogs;
 
-        dogs.addDog({
+        dogsComponent.value?.addDog({
             name: name.value,
             age: age.value,
             breed: breed.value,

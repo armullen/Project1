@@ -2,7 +2,7 @@
 <template>
     <h1>{{ dogListTitle }}</h1>
     <ul>
-        <li v-for='dog in dogList' :key="dog.id">
+        <li v-for='dog in dogList' :key="dog.id" data-test="dogList">
             {{ dog.name }}
         </li>
     </ul>
@@ -10,9 +10,9 @@
 
 
 <script lang="ts">
-    export type DogsComponent = { 
-        addDog: (dogInput: DogInput) => void,
-        removeDog: (dog: Dog) => void
+        export type DogsComponent = { 
+            addDog: (dogInput: DogInput) => void,
+            removeDog: (dog: Dog) => void
     }
 </script>
 

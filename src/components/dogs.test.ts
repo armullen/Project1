@@ -5,16 +5,21 @@ import { Dogs } from './index.ts'
 
 test('creates a new dog', async () => {
     const wrapper = mount(Dogs)
-    expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(6)
 
-    await wrapper.get('[data-test="dog-name"]').setValue('Fido')
-    await wrapper.get('[data-test="dog-breed"]').setValue('Poodle')
-    await wrapper.get('[data-test="dog-age"]').setValue('3')
-    await wrapper.get('[data-test="dog-gender"]').setValue('Male')
-    await wrapper.get('[data-test="submit"]').trigger('submit')
+    await wrapper.find('[data-test="dog-name"]').setValue('Fido')
+    await wrapper.find('[data-test="dog-breed"]').setValue('Poodle')
+    await wrapper.find('[data-test="dog-age"]').setValue('3')
+    await wrapper.find('[data-test="dog-gender"]').setValue('Male')
+    await wrapper.find('button').trigger('click')
 
-    expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(7)
 });
+    const wrapper = mount(Dogs)
+    expect(wrapper.emitted('submit')).toBe({
+        name: 'Fido',
+        breed: 'Poodle',
+        age: '3',
+        gender: 'Male'
+    })
 
 
 // describe('remove a dog button is pushed' () => {

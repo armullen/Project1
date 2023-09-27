@@ -2,7 +2,7 @@
 <template>
     <h1>{{ dogListTitle }}</h1>
     <ul>
-        <li v-for='dog in dogList' :key="dog.id" data-test="dogList">
+        <li v-for='dog in dogList' :key="dog.id" >
             {{ dog.name }}
         </li>
     </ul>

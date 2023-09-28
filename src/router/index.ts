@@ -5,6 +5,7 @@ import AllDogs from "../views/all-dogs/index.vue";
 import Bachelors from '../views/boys/bachelors.vue'
 import Bachelorettes from '../views/girls/bachelorettes.vue'
 import SignUpForm from '../views/SignUpForm.vue'
+import DetailPage from '../views/DetailPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -36,6 +37,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/signup',
         name: 'Signup',
         component: SignUpForm
+    },
+    {
+        path: '/:id',
+        name: 'DetailPage',
+        component: DetailPage
     }
 ]
 

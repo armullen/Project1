@@ -3,7 +3,9 @@
     <h1>{{ dogListTitle }}</h1>
     <ul>
         <li v-for='dog in dogList' :key="dog.id" data-test="dogList" >
-            {{ dog.name }}
+           <router-link to="/:id">
+               {{ dog.name }}
+           </router-link> 
         </li>
     </ul>
 </template>

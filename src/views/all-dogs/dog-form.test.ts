@@ -3,6 +3,8 @@ import { mount } from '@vue/test-utils'
 import index from './index.vue'
 
 
+////////////////////testing the submit button on form
+
 test('object created with submit button', async () => {
     const wrapper = mount(index)
 
@@ -21,6 +23,10 @@ test('object created with submit button', async () => {
         
 });
     
+
+
+///////////////testing alert message when no dog info is entered
+
 
 test('alert message when no dog info is entered', async () => {
     

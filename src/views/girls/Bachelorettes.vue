@@ -1,5 +1,5 @@
 <template>
-    <h1>Lovely Ladies</h1>
+    <h1>The Ladies...</h1>
     <ul>
         <li v-for='dog in dogs' :key="dog.id">
             {{ dog.name }}

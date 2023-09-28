@@ -1,9 +1,9 @@
-import { expect, test, describe } from 'vitest'
+import { expect, test, describe, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import index from './index.vue'
 
 
-test('object created with', async () => {
+test('object created with submit button', async () => {
     const wrapper = mount(index)
 
     await wrapper.find('[data-test="dog-name"]').setValue('Fido')
@@ -21,6 +21,17 @@ test('object created with', async () => {
         
 });
     
+
+test('alert message when no dog info is entered', async () => {
+    
+    describe('index', () => {
+        test('should render alert message on button click', async () => {
+            const wrapper = mount(index)
+            await wrapper.find('button').trigger('click')
+            expect(wrapper.emitted('alert')).toBeTruthy()
+        })
+        });
+})
 
 
 

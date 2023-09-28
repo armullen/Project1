@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { Dogs } from './index.ts'
+import { Dogs } from '../views/all-dogs/index.vue'
 
 
 test('creates a new dog', async () => {
@@ -10,7 +10,7 @@ test('creates a new dog', async () => {
     await wrapper.find('[data-test="dog-breed"]').setValue('Poodle')
     await wrapper.find('[data-test="dog-age"]').setValue('3')
     await wrapper.find('[data-test="dog-gender"]').setValue('Male')
-    await wrapper.find('button').trigger('click')
+    await wrapper.find('submit').trigger('click')
 
 });
     const wrapper = mount(Dogs)
@@ -22,12 +22,6 @@ test('creates a new dog', async () => {
     })
 
 
-// describe('remove a dog button is pushed' () => {
-//     it('should remove the dog from the Dog array', async() => {
-//     })
-//         const wrapper = mount(Dogs)
-//         await wrapper.find('button').trigger('click')
-// })
 
 
 

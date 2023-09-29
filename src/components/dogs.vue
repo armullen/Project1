@@ -57,6 +57,8 @@ const dogList = computed(() => {
     return dogs.filter((dog: Dog) => { return !props.gender || dog.gender === props.gender } )
 });
 
+
+
 function getNextId(): number {
     
     let result = 1;

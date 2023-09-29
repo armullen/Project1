@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { Dog } from "../types/Dogs";
+import  Dog  from "../components/dogs.vue";
 
     
 

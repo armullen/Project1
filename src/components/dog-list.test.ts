@@ -4,25 +4,23 @@ import { mount } from '@vue/test-utils';
 
 ///////////////testing the default array of dogs
 
-// describe('dogs', () => {
+describe('dogs', () => {
 
-//     it('should render the default array of dogs', () => {
-//    const wrapper = mount(dogs);
+    it('should render the default array of dogs', () => {
+   const wrapper = mount(dogs);
    
-//    const dogList = wrapper.findAll('[data-test="dogList"]');
+   expect(wrapper.findAll('li').length).toEqual(6);
 
-//    const expectedDogs = [
-//     {name: "Spike"}, 
-//     {name: "Rex"},
-//     {name: "Rover"},
-//     {name: "Matilda"},
-//     {name: "Claire"},
-//     {name: "Phoebe"}
-// ]
-
-//     expect(dogList).toEqual(expectedDogs);
-// });
-// });
+   expect(wrapper.findAll('li').at(0)?.text()).toMatch('Spike')
+   expect(wrapper.findAll('li').at(1)?.text()).toMatch('Rex')
+   expect(wrapper.findAll('li').at(2)?.text()).toMatch('Rover')
+   expect(wrapper.findAll('li').at(3)?.text()).toMatch('Matilda')
+   expect(wrapper.findAll('li').at(4)?.text()).toMatch('Claire')
+   expect(wrapper.findAll('li').at(5)?.text()).toMatch('Phoebe')
+   
+    
+});
+});
 
 
 

@@ -4,7 +4,7 @@
     <div>
         <h1>Detail Page</h1>
         <p>   
-            {{ dog.name }}
+            {{ dogs.name }}
         </p>
     </div>
         
@@ -16,15 +16,12 @@ import dogs from "../components/dogs.vue";
 
 const dog = {
     props: ['id', 'name'],
-    template: '<div>dog {{ id }}, {{name}} </div>',
+    template: '<div>dog {{ id }}, {{ name }} </div>',
 }
 
 const routes = [
     { path: '/:id', component: dog, props: true }
 ]
-
-
-
 
 </script>
 

@@ -3,24 +3,26 @@
 <template>
     <div>
         <p>
-            Hello, my name is {{ Dog.name }} and I am a {{ Dog.breed }}. I am {{ Dog.age }} years old.
+            Hello, my name is {{ dog.name }} and I am a {{ dog.breed }}. I am {{ dog.age }} years old.
         </p> 
-        <button>Add {{ Dog.name }} to my favorites</button>     
+        <button>Add {{ dog.name }} to my favorites</button>     
         <button>Contact my humans</button>     
     </div>
         
 </template>
 
 <script setup lang="ts">
-import  Dog  from '../components/dogs.vue';
-// import { computed } from 'vue';
-// import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router'
+import { ref, onBeforeMount } from 'vue'
+import { Dogs, DogsComponent } from '../components/dogs.vue'
 
-//     setup() {
-//         const route = useRoute();
-//         const id = computed(() => route.params.id);
-//    return { id }
-//     }
+const dog = ref({} as Dogs)
+const route = useRoute()
+const id = route.params.id
+
+onBeforeMount(() => {
+    dog.value = dogs.find(dog => dog.id === id)
+})
 
 
 

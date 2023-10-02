@@ -2,25 +2,19 @@
 
 <template>
     <div>
-        <p>
+        <!-- <p>
             Hello, my name is {{ Dog.name }} and I am a {{ Dog.breed }}. I am {{ Dog.age }} years old.
-        </p> 
-        <button>Add {{ Dog.name }} to my favorites</button>     
+        </p>  -->
+        <button>Add me to your favorites</button>     
         <button>Contact my humans</button>     
     </div>
         
 </template>
 
 <script setup lang="ts">
-import  Dog  from '../components/dogs.vue';
-// import { computed } from 'vue';
-// import { useRoute } from 'vue-router';
+// import { Dog }  from '../types/Dogs';
 
-//     setup() {
-//         const route = useRoute();
-//         const id = computed(() => route.params.id);
-//    return { id }
-//     }
+// defineProps(['Dog']);
 
 
 

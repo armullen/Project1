@@ -2,10 +2,9 @@
 <template>
     <h1>{{ dogListTitle }}</h1>
     <ul>
-        <li v-for='dog in dogList' :key="dog.id" data-test="dogList" >
-           <router-link to="/:id">
+        <li v-for='dog in dogList' :key="dog.id" data-test="dogList" @click="router.push(`${dog.id}`)">
                {{ dog.name }}
-           </router-link> 
+           
         </li>
     </ul>
 </template>
@@ -23,7 +22,9 @@
 
 import { computed, reactive, PropType, defineExpose } from 'vue'
 import { Dog, DogInput } from "../types/Dogs";
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const props = defineProps({
     gender: {
         type: String

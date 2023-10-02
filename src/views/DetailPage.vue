@@ -12,20 +12,21 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from 'vue-router'
+import { ref, onBeforeMount } from "vue"
 import  Dog  from '../components/dogs.vue';
-// import { computed } from 'vue';
-// import { useRoute } from 'vue-router';
 
-//     setup() {
-//         const route = useRoute();
-//         const id = computed(() => route.params.id);
-//    return { id }
-//     }
+const dog = ref(null)
+const route = useRoute()
+const {id} = route.params
+
+onBeforeMount(() => {
+    dog.value = dog.find(dog => dog.id === parseInt(id))
+})
 
 
 
 </script>
 
 <style>
-
 </style>

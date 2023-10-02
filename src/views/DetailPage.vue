@@ -3,9 +3,9 @@
 <template>
     <div>
         <p>
-            Hello, my name is {{ Dog.name }} and I am a {{ Dog.breed }}. I am {{ Dog.age }} years old.
+            Hello, my name is {{ dog.name }} and I am a {{ dog.breed }}. I am {{ dog.age }} years old.
         </p> 
-        <button>Add {{ Dog.name }} to my favorites</button>     
+        <button>Add {{ dog.name }} to my favorites</button>     
         <button>Contact my humans</button>     
     </div>
         
@@ -14,17 +14,15 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { ref, onBeforeMount } from "vue"
-import  Dog  from '../components/dogs.vue';
+import  dogs  from '../components/dogs.vue';
 
 const dog = ref(null)
 const route = useRoute()
-const {id} = route.params
+const id = route.params.id
 
 onBeforeMount(() => {
-    dog.value = dog.find(dog => dog.id === parseInt(id))
+    dog.value = dogs.find(dog => dog.id === parseInt(id))
 })
-
-
 
 </script>
 

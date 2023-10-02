@@ -2,27 +2,25 @@
 
 <template>
     <div>
+        <h1>Detail Page</h1>
         <p>
-            Hello, my name is {{ dog.name }} and I am a {{ dog.breed }}. I am {{ dog.age }} years old.
-        </p> 
-        <button>Add {{ dog.name }} to my favorites</button>     
-        <button>Contact my humans</button>     
+            {{ id }}    
+        </p>
     </div>
         
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { ref, onBeforeMount } from 'vue'
-import { Dogs, DogsComponent } from '../components/dogs.vue'
+import dogs from "../components/dogs.vue";
 
-const dog = ref({} as Dogs)
-const route = useRoute()
-const id = route.params.id
+const dog = {
+    props: ['id'],
+    template: '<div>dog {{ id }} </div>',
+}
 
-onBeforeMount(() => {
-    dog.value = dogs.find(dog => dog.id === id)
-})
+const routes = [
+    { path: '/:id', component: dog, props: true }
+]
 
 
 

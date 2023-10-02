@@ -2,8 +2,10 @@
 <template>
     <h1>{{ dogListTitle }}</h1>
     <ul>
-        <li v-for='dog in dogList' :key="dog.id" data-test="dogList" @click="router.push(`${dog.id}`)">
-               {{ dog.name }}
+        <li v-for='dog in dogList' :key="dog.id" data-test="dogList" @click="navigateToDetailPage(dog.id)">
+            <button>
+                {{ dog.name }}
+            </button>   
            
         </li>
     </ul>
@@ -31,8 +33,12 @@ const props = defineProps({
     },
     dogs: {
         type: Object as PropType<Dog[]>
+    },
+    id: {
+        type: Number, required: true
     }
 })
+
 
 const dogs = reactive<Dog[]>(props.dogs ?? [
     {name: "Spike", age: 5, breed: "Boxer", gender: "Male", id: 1}, 
@@ -42,6 +48,7 @@ const dogs = reactive<Dog[]>(props.dogs ?? [
     {name: "Claire", age: 7, breed: "Bichon Frise", gender: "Female", id: 5},
     {name: "Phoebe", age: 1, breed: "Rottweiler", gender: "Female", id: 6}
 ]);
+
 
 const dogListTitle = computed(() => {
     switch(props.gender?.toLowerCase()) {
@@ -58,7 +65,9 @@ const dogList = computed(() => {
     return dogs.filter((dog: Dog) => { return !props.gender || dog.gender === props.gender } )
 });
 
-
+const navigateToDetailPage = (id: number) => {
+    router.push({ name: 'DetailPage', params: { id: id.toString() } })
+}
 
 function getNextId(): number {
     

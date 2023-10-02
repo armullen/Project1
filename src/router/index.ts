@@ -41,7 +41,8 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/:id',
         name: 'DetailPage',
-        component: DetailPage
+        component: DetailPage,
+        props: true
     }
 ]
 

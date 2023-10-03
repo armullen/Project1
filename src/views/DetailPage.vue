@@ -2,27 +2,37 @@
 
 <template>
     <div>
-        <h1>Detail Page</h1>
+    
         <p>   
-            {{ dogs.name }}
+            Hey!  My name is {{ dog.name }}!
         </p>
     </div>
         
 </template>
 
-<script setup lang="ts">
-import dogs from "../components/dogs.vue";
 
+<script setup lang="ts">
+import dogDetail from "../components";  
+import { defineProps } from "vue";
+
+
+const props = defineProps({
+    name: {
+        type: String
+    }
+})
+console.log(props)
 
 const dog = {
-    props: ['id', 'name'],
+    props: ['id', 'name', 'gender', 'age', 'breed'],
     template: '<div>dog {{ id }}, {{ name }} </div>',
 }
+console.log(dog)
 
 const routes = [
     { path: '/:id', component: dog, props: true }
 ]
-
+console.log(routes)
 </script>
 
 <style>

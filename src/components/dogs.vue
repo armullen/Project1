@@ -11,6 +11,7 @@
                
         </li>
     </ul>
+    
 </template>
 
 
@@ -18,6 +19,7 @@
         export type DogsComponent = { 
             addDog: (dogInput: DogInput) => void,
             removeDog: (dog: Dog) => void
+            
     }
 </script>
 
@@ -28,7 +30,9 @@ import { computed, reactive, PropType, defineExpose } from 'vue'
 import { Dog, DogInput } from "../types/Dogs";
 import { useRouter } from 'vue-router'
 
+
 const router = useRouter()
+
 const props = defineProps({
     gender: {
         type: String
@@ -51,6 +55,9 @@ const dogs = reactive<Dog[]>(props.dogs ?? [
     {name: "Phoebe", age: 1, breed: "Rottweiler", gender: "Female", id: 6}
 ]);
 
+const dogDetail = computed(() => {
+    return dogs.find((dog: Dog) => { return dog.id === props.id } )
+});
 
 const dogListTitle = computed(() => {
     switch(props.gender?.toLowerCase()) {

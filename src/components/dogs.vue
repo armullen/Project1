@@ -4,7 +4,7 @@
     <ul>
         <li v-for='dog in dogList' :key="dog.id" data-test="dogList">
         
-        <router-link v-bind:to="{name: 'DetailPage', params: {id: dog.id}}">
+        <router-link :to="{name: 'DetailPage', params: {id: dog.id}}">
             {{ dog.name }}
         
         </router-link>
@@ -31,9 +31,19 @@ import { Dog, DogInput } from "../types/Dogs";
 import { useRouter } from 'vue-router'
 
 
+
 const router = useRouter()
 
 const props = defineProps({
+    name: {
+        type: String
+    },
+    age: {
+        type: Number
+    },
+    breed: {
+        type: String
+    },
     gender: {
         type: String
     },
@@ -54,6 +64,7 @@ const dogs = reactive<Dog[]>(props.dogs ?? [
     {name: "Claire", age: 7, breed: "Bichon Frise", gender: "Female", id: 5},
     {name: "Phoebe", age: 1, breed: "Rottweiler", gender: "Female", id: 6}
 ]);
+console.log(dogs.name);
 
 const dogDetail = computed(() => {
     return dogs.find((dog: Dog) => { return dog.id === props.id } )

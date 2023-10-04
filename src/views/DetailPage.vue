@@ -1,10 +1,9 @@
-<!-- a page for each individual dog to show information when hyperlink name is clicked on all dogs or girls and boys page, will also have a contact button and favorites button that will save as a favorite in a seperate array -->
 
 <template>
     <div>
-    
+        <dogs :id="id" />
         <p>   
-            Hey!  My name is {{ dog.name }}!
+            Hey!  My name is {{ dogInfo.name }}!
         </p>
     </div>
         
@@ -12,27 +11,23 @@
 
 
 <script setup lang="ts">
-import dogDetail from "../components";  
-import { defineProps } from "vue";
+import { computed } from 'vue'
+import dogs from '../components/dogs.vue'
+import { Dog } from '../types/Dogs'
 
+const dogInfo = computed(() => {
+    return dogs.value.find((dog: Dog) => dog.id === props.id)})
 
-const props = defineProps({
-    name: {
-        type: String
+  const props = defineProps({
+    id: {
+      type: Number,
+      required: true
     }
-})
-console.log(props)
-
-const dog = {
-    props: ['id', 'name', 'gender', 'age', 'breed'],
-    template: '<div>dog {{ id }}, {{ name }} </div>',
-}
-console.log(dog)
+  })
 
 const routes = [
     { path: '/:id', component: dog, props: true }
 ]
-console.log(routes)
 </script>
 
 <style>

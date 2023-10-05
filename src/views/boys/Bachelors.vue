@@ -1,9 +1,10 @@
 
 <template>
-    <Dogs gender="Male" />
+    <DogList :gender="Genders.Male" />
 </template>
 
 
 <script setup lang="ts">
-    import { Dogs } from "../../components";
+    import { DogList } from "../../components";
+    import { Genders } from "../../types";
 </script>

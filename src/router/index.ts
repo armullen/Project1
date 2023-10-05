@@ -2,8 +2,8 @@ import {createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import AllDogs from "../views/all-dogs/index.vue";
-import Bachelors from '../views/boys/bachelors.vue'
-import Bachelorettes from '../views/girls/bachelorettes.vue'
+import Bachelors from '../views/boys/Bachelors.vue'
+import Bachelorettes from '../views/girls/Bachelorettes.vue'
 import SignUpForm from '../views/SignUpForm.vue'
 import DetailPage from '../views/DetailPage.vue'
 
@@ -14,7 +14,7 @@ const routes: Array<RouteRecordRaw> = [
         component: Home
     },
     {
-        path: '/all-dogs',
+        path: '/dogs',
         name: 'All Dogs',
         component: AllDogs
     },
@@ -39,16 +39,16 @@ const routes: Array<RouteRecordRaw> = [
         component: SignUpForm
     },
     {
-        path: '/:id',
+        path: '/dogs/:id',
         name: 'DetailPage',
         component: DetailPage,
         props: true
     }
 ]
 
-const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+export const router = createRouter({
+    history: createWebHistory(),
     routes
-})
+});
 
-    export default router; 
+export default router; 

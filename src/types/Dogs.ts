@@ -1,8 +1,10 @@
+import { Genders } from "./Genders";
+
 export interface Dog {
     name: string;
     age: number;
     breed: string;
-    gender: string;
+    gender: Genders;
     id: number;
 }
 

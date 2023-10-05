@@ -15,8 +15,11 @@ import { computed } from 'vue'
 import dogs from '../components/dogs.vue'
 import { Dog } from '../types/Dogs'
 
-const dogInfo = computed(() => {
-    return dogs.value.find((dog: Dog) => dog.id === props.id)})
+// import { useRoute } from 'vue-router'
+
+// const route = useRoute()
+// const dogInfo = parseInt(route.params.id)
+const dogInfo = dogs.find(id)
 
   const props = defineProps({
     id: {

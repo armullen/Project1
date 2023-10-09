@@ -1,2 +1,4 @@
 //test functionality of favorite button
-//test contact form
+//test functionality of clicking on an individual dog and getting their info
+//test go back button
+

@@ -1,4 +1,3 @@
-<!-- this will be the sign up form to add new dogs to the database, the link to get to this page will be in the about page until auth is set up -->
 
 <template>
     <div>

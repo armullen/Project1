@@ -16,17 +16,15 @@ const wrapper = mount(DetailPageVue, {
 })
 
 const store = useDogsStore()
+store.name= 'dogStore'
 
-store.name = 'dogStore'
 
+////////////////test go back button
 
-//test go back button
-test('go back button', async () => {
+test('emits an event when clicked', async () => {
         
-        expect(wrapper.find('button')).onclick('Go Back')
+    await wrapper.find('button').trigger('click')
 
-        await wrapper.vm.$nextTick();
-
-        wrapper.vm.goBack();
+    expect(wrapper.emitted()).toHaveProperty('submit');
 })
    

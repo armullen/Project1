@@ -4,11 +4,13 @@ import router from './router';
 import { createPinia } from 'pinia';
 import { useDogsStore } from "./stores";
 import { Genders } from "./types";
+import PrimeVue from 'primevue/config';
 
 const app = createApp(App);
 
 
 app.use(createPinia());
+app.use(PrimeVue);
 
 
 const dogsStore = useDogsStore();

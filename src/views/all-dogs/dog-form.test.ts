@@ -37,9 +37,8 @@ test('object created with submit button', async () => {
 
 test('alert message when no dog info is entered', async () => {
     
-    describe('index', () => {
+    describe('sign up form', () => {
         test('should render alert message on button click', async () => {
-            const wrapper = mount(index)
             await wrapper.find('button').trigger('click')
             expect(wrapper.emitted('alert')).toBeTruthy()
         })

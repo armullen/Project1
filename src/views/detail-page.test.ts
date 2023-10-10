@@ -25,6 +25,6 @@ test('emits an event when clicked', async () => {
         
     await wrapper.find('button').trigger('click')
 
-    expect(wrapper.emitted()).toHaveProperty('submit');
+    expect(wrapper.emitted('submit')).toBeTruthy();
 })
    

@@ -1,12 +1,20 @@
-import { expect, test, describe, it } from 'vitest'
+import { expect, test, describe, vitest } from 'vitest'
 import { mount } from '@vue/test-utils'
-import index from './index.vue'
+import { createTestingPinia } from '@pinia/testing'
+import { useDogsStore } from '../../stores'
+import SignUpForm from '../SignUpForm.vue'
 
+const wrapper = mount(SignUpForm, {
+    global: {
+        plugins: [createTestingPinia({ createSpy: vitest.fn }),],
+    }});
+
+    const store = useDogsStore()
+    store.name = 'dogStore'
 
 ////////////////////testing the submit button on form
 
 test('object created with submit button', async () => {
-    const wrapper = mount(index)
 
     await wrapper.find('[data-test="dog-name"]').setValue('Fido')
     await wrapper.find('[data-test="dog-breed"]').setValue('Poodle')
@@ -15,7 +23,6 @@ test('object created with submit button', async () => {
     
     describe('index', () => {
         test('should render add-dog event on button click', async () => {
-            const wrapper = mount(index)
             await wrapper.find('button').trigger('click')
             expect(wrapper.emitted('add-dog')).toBeTruthy()
         })

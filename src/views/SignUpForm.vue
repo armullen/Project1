@@ -2,19 +2,19 @@
 <template>
     <div>
         <label>Name</label>
-        <input v-model="name" type="text" required />
+        <input v-model="name" data-test="dog-name" type="text" required />
     </div>
     <div>
         <label>Age</label>
-        <input v-model="age" type="number" required />
+        <input v-model="age" data-test="dog-age" type="number" required />
     </div>
     <div>
         <label>Breed</label>
-        <input v-model="breed" type="text" required />
+        <input v-model="breed" data-test="dog-breed" type="text" required />
     </div>
     <div>
         <label>Gender</label>
-        <select v-model="gender">
+        <select v-model="gender" data-test="dog-gender">
             <option @value="Genders.Unspecified"></option>
             <option @value="Genders.Male">Male</option>
             <option @value="Genders.Female">Female</option>

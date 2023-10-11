@@ -1,25 +1,34 @@
 
 import { useDogsStore } from "./dogsStore";
-import { test, expect, vitest } from "vitest";
-import { createTestingPinia } from "@pinia/testing";   
-import { nextTick } from "vue";
+import { describe, beforeAll, expect, it } from "vitest";
+import { createPinia, setActivePinia } from "pinia";
 
-const testingPinia = createTestingPinia({ createSpy: vitest.fn })
-const store = useDogsStore(testingPinia)
+describe('Dogs Store', () => {
 
-/////////add a dog test
+    beforeAll(() => { 
+        setActivePinia(createPinia());
+    });
 
-test('add a dog', async () => {
+    /////////add a dog test
+    it('ads dogs', () => {
 
-expect(store.dogsList).toHaveLength(0);
+        const store = useDogsStore();
+        expect(store.dogsList).toHaveLength(0);
+        store.addDog({name: 'Fido', age: 3, breed: 'Bulldog', gender: 1});
+        expect(store.dogsList).toHaveLength(1)
+    });
 
-store.addDog({name: 'Fido', age: 3, breed: 'Bulldog', gender: 1})
+    /////////delete a dog test
+    it('removes dogs', () => { 
+        const store = useDogsStore();
+        expect(store.dogsList).toHaveLength(1);
+        const dogId = store.dogsList[0].id;
+        store.removeDog(dogId);
+        expect(store.dogsList).toHaveLength(0);
+    });
 
-await nextTick()
-
-expect(store.dogsList).toHaveLength(1)
 })  
 
-/////////delete a dog test
+
     
    

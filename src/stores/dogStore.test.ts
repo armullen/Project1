@@ -1,17 +1,21 @@
 
 import { useDogsStore } from "./dogsStore";
-import { setActivePinia, createPinia } from "pinia";
-import { describe, beforeEach, expect, it } from "vitest";
+import { test, expect, vitest } from "vitest";
+import { createTestingPinia } from "@pinia/testing";    
 
-describe('dogsStore', () => {
-    beforeEach(() => {
-        setActivePinia(createPinia())
-    })
-})
+const testingPinia = createTestingPinia({ createSpy: vitest.fn })
+const store = useDogsStore(testingPinia)
 
-it('should add a dog to the doglist array', () => {
-    const dogs = useDogsStore();
-    expect(dogs.dogsList).toHaveLength(0);
-    dogs.addDog();
-    expect(dogs.dogsList).toHaveLength(1);
-})
+/////////add a dog test
+
+test('add a dog', () => {
+
+expect(store.dogsList).toHaveLength(0);
+
+store.addDog({name: 'Fido', age: 3, breed: 'Bulldog', gender: 1})
+
+
+expect(store.dogsList).toHaveLength(1);
+})  
+    
+   

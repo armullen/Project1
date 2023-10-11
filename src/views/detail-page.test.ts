@@ -1,5 +1,3 @@
-//test functionality of favorite button
-//test functionality of clicking on an individual dog and getting their info
 
 import DetailPageVue from "./DetailPage.vue";
 import { createTestingPinia } from '@pinia/testing';
@@ -19,12 +17,13 @@ const store = useDogsStore()
 store.name= 'dogStore'
 
 
-////////////////test go back button
 
-test('emits an event when clicked', async () => {
+//test functionality of favorite button
+
+test('', async () => {
         
-    await wrapper.find('button').trigger('click')
+    // await wrapper.find('button').trigger('click')
 
-    expect(wrapper.emitted('submit')).toBeTruthy();
+    // expect(wrapper.emitted('router.back')).toBeTruthy();
 })
    

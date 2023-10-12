@@ -1,9 +1,8 @@
 
-import { beforeEach, describe, expect, test, vitest } from 'vitest';
+import { describe, it, vitest, expect } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { createTestingPinia } from '@pinia/testing';
 import { useDogsStore } from '../stores';
-import { setActivePinia, createPinia } from 'pinia';
 import { DogList } from '.';
 
 const wrapper = mount(DogList, {
@@ -13,54 +12,48 @@ const wrapper = mount(DogList, {
 })
 
 const store = useDogsStore()
+let dog;
 
 
-///////////////testing the default array of dogs
+///////////////testing the switch in titles from male to female to all dogs
 
 
-describe('DogList', () => {
-    beforeEach(() => {
-        setActivePinia(createPinia())
-    }
-    )
-test('should render the default array of dogs', () => {
-    const dogs = useDogsStore();
+describe("dogListTitle", () => {
+    it("should return the boys page title",() => {
+        const wrapper = mount(DogList, {
+            propsData: {
+                gender: 1
+            }
 
-    expect(dogs.dogsList).toHaveLength(0);
+        })
+    expect(wrapper.text()).toContain('The Boys...')
 })
-});
-
-/////////////testing add a dog function
+})
 
 
-// test('creates a new dog', async () => {
+describe("dogListTitle", () => {
+    it("should return the girls page title",() => {
+        const wrapper = mount(DogList, {
+            propsData: {
+                gender: 2
+            }
 
-//     expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(6)
+        })
+    expect(wrapper.text()).toContain('The Ladies...')
+})
 
-//     wrapper.vm.addDog();
-//     await wrapper.vm.$nextTick();
 
-//     expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(7)    
-    
+})
+describe("dogListTitle", () => {
+    it("should return the default page title",() => {
+        const wrapper = mount(DogList, {
+            propsData: {
+                gender: undefined
+            }
 
-// });
+        })
+    expect(wrapper.text()).toContain('The Dogs...')
+})
+})
 
-////////////////testing delete a dog function
 
-// test('deletes a dog', async () => {
-
-//     const wrapper = mount(dogs, {
-//         global: {
-//             plugins: [createTestingPinia({ createSpy: vitest.fn }),],
-//         }
-//     })
-
-//     expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(6)
-
-//     wrapper.vm.removeDog();
-//     await wrapper.vm.$nextTick();
-
-//     expect(wrapper.findAll('[data-test="dogList"]')).toHaveLength(5)    
-    
-
-// });

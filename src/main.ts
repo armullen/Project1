@@ -20,7 +20,7 @@ dogsStore.initDogList([
     {name: "Rover", age: 2, breed: "Bulldog", gender: Genders.Male, favorite: false},
     {name: "Matilda", age: 3, breed: "Great Dane", gender: Genders.Female, favorite: false},
     {name: "Claire", age: 7, breed: "Bichon Frise", gender: Genders.Female, favorite: false},
-    {name: "Phoebe", age: 1, breed: "Rottweiler", gender: Genders.Female, favorite: false}
+    {name: "Phoebe", age: 1, breed: "Rottweiler", gender: Genders.Female, favorite: true}
 ]);
 
 app.use(router);

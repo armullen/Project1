@@ -2,17 +2,20 @@
 <template>
     <div>
         <p v-if="dogInfo">   
-          Hey!  My name is {{ dogInfo.name }}!
+          Hey!  My name is {{ dogInfo.name }}! I am a {{ dogInfo.age }} year old {{ dogInfo.breed }}.  Lets play!
         </p>
         <p v-else>
             Lost Dog Alert!  This dog is not in our database!    
         </p>
     <div>
-        <input type="radio" id="favorite">Add to Favorites
+        <input type="radio" id="favorite" >Add to Favorites
+        <p v-if="dogInfo?.favorite">This dog is a favorite!</p>
     </div>
     <hr>
         <button @click="router.back()">Go Back!</button>
     </div>
+
+    <!-- would like a flag that comes up if selected dog is a favorite and the button to select favorite to go away if selected -->
     
         
 </template>

@@ -31,6 +31,10 @@ export const useDogsStore = defineStore('dogStore', () => {
         return dogsList.value.filter((dog: Dog) => { return dog.gender = Genders.Female } )
     });
 
+    const favorite = computed(() => {
+        return dogsList.value.filter((dog: Dog) => { return dog.favorite = true } )
+    });
+
 
     const nextId = computed(() => { 
 
@@ -51,7 +55,7 @@ export const useDogsStore = defineStore('dogStore', () => {
         }
     }
 
-    return { dogsList, addDog, removeDog, boys, girls, initDogList };
+    return { dogsList, addDog, removeDog, boys, girls, favorite, initDogList };
 
 });
 

@@ -6,6 +6,7 @@ export interface Dog {
     breed: string;
     gender: Genders;
     id: number;
+    favorite: boolean;
 }
 
 export type DogInput = Omit<Dog, 'id'>;

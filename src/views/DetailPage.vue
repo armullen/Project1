@@ -10,6 +10,7 @@
     <div>
         <input type="radio" id="favorite">Add to Favorites
     </div>
+    <hr>
         <button @click="router.back()">Go Back!</button>
     </div>
     

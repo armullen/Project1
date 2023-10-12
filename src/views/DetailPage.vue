@@ -5,8 +5,11 @@
           Hey!  My name is {{ dogInfo.name }}!
         </p>
         <p v-else>
-          Lost Dog Alert!  This dog is not in our database!
+            Lost Dog Alert!  This dog is not in our database!    
         </p>
+    <div>
+        <input type="radio" id="favorite">Add to Favorites
+    </div>
         <button @click="router.back()">Go Back!</button>
     </div>
     

@@ -9,7 +9,14 @@
         </p>
     <div>
         <input type="radio" id="favorite" >Add to Favorites
-        <p v-if="dogInfo?.favorite">This dog is a favorite!</p>
+        <div class favorite>
+            <p v-if="dogInfo?.favorite">
+                This dog is a favorite!
+                <div>
+                    <button class="removeFavorite" @click="removeFavorite">Remove from Favorites</button>
+                </div>
+            </p>
+        </div>
     </div>
     <hr>
         <button @click="router.back()">Go Back!</button>

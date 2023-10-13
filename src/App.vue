@@ -11,6 +11,7 @@
       <router-link :to="{ name: 'All Dogs' }">All Dogs</router-link> |
       <router-link :to="{ name: 'Bachelors' }">Bachelors</router-link> |
       <router-link :to="{ name: 'Bachelorettes' }">Bachelorettes</router-link> |
+      <router-link :to="{ name: 'Favorites' }">My Favorite Dogs</router-link> |
       <router-link :to="{ name: 'Signup' }">Sign Up</router-link>
     </div>
     <router-view />

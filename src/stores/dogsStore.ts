@@ -17,7 +17,7 @@ export const useDogsStore = defineStore('dogStore', () => {
 
         dogsList.value.push(dog);
     }
-    
+
     function removeFavorite(dogId: number): void {
         const index = dogsList.value.findIndex((dog) => dog.id === dogId);
         dogsList.value[index].favorite = false;
@@ -41,7 +41,7 @@ export const useDogsStore = defineStore('dogStore', () => {
     });
 
     const favorite = computed(() => {
-        return dogsList.value.filter((dog: Dog) => { return dog.favorite = true } )
+        return dogsList.value.filter((dog: Dog) => { return dog.favorite === true } )
     });
 
 

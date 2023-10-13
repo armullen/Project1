@@ -6,6 +6,7 @@ import Bachelors from '../views/boys/Bachelors.vue'
 import Bachelorettes from '../views/girls/Bachelorettes.vue'
 import SignUpForm from '../views/SignUpForm.vue'
 import DetailPage from '../views/DetailPage.vue'
+import Favorites from '../views/all-dogs/Favorites.vue'
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -37,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
         path: '/signup',
         name: 'Signup',
         component: SignUpForm
+    },
+    {
+        path: '/favorites',
+        name: 'Favorites',
+        component: Favorites
     },
     {
         path: '/dogs/:id',

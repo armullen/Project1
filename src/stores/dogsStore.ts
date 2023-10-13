@@ -17,6 +17,15 @@ export const useDogsStore = defineStore('dogStore', () => {
 
         dogsList.value.push(dog);
     }
+    
+    function removeFavorite(dogId: number): void {
+        const index = dogsList.value.findIndex((dog) => dog.id === dogId);
+        dogsList.value[index].favorite = false;
+    }
+    function addFavorite(dogId: number): void {
+        const index = dogsList.value.findIndex((dog) => dog.id === dogId);
+        dogsList.value[index].favorite = true;
+    }
 
     function removeDog(dogId: number): void { 
         const index = dogsList.value.findIndex((dog) => dog.id === dogId);
@@ -55,7 +64,7 @@ export const useDogsStore = defineStore('dogStore', () => {
         }
     }
 
-    return { dogsList, addDog, removeDog, boys, girls, favorite, initDogList };
+    return { dogsList, addDog, removeDog, boys, girls, favorite, initDogList, addFavorite, removeFavorite };
 
 });
 

@@ -9,22 +9,20 @@
         </p>
     <div>
         <div class="notFavorite" v-if="dogInfo?.favorite === false">
-            <input type="radio" id="favorite" >Add to Favorites
+            <input type="radio" id="favorite" @click="addFavorite()" >Add to Favorites
         </div>
             <div class favorite>
                 <p v-if="dogInfo?.favorite">
                     This dog is a favorite!
-                <div>
-                    <button class="removeFavorite" @click="removeFavorite">Remove from Favorites</button>
-                </div>
-            </p>
+                    <div>
+                        <button class="removeFavorite" @click="removeFavorite()">Remove from Favorites</button>
+                    </div>
+                </p>
         </div>
     </div>
     <hr>
         <button @click="router.back()">Go Back!</button>
     </div>
-
-    <!-- would like a flag that comes up if selected dog is a favorite and the button to select favorite to go away if selected -->
     
         
 </template>

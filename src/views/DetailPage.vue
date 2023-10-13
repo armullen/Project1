@@ -8,10 +8,12 @@
             Lost Dog Alert!  This dog is not in our database!    
         </p>
     <div>
-        <input type="radio" id="favorite" >Add to Favorites
-        <div class favorite>
-            <p v-if="dogInfo?.favorite">
-                This dog is a favorite!
+        <div class="notFavorite" v-if="dogInfo?.favorite === false">
+            <input type="radio" id="favorite" >Add to Favorites
+        </div>
+            <div class favorite>
+                <p v-if="dogInfo?.favorite">
+                    This dog is a favorite!
                 <div>
                     <button class="removeFavorite" @click="removeFavorite">Remove from Favorites</button>
                 </div>

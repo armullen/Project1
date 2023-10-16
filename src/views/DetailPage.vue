@@ -44,11 +44,21 @@ const selectedDogId = computed(() => {
     return parseInt(route.params.id as string) || 0;
 });
 
+const addFavorite = () => {
+    dogsStore.addFavorite(selectedDogId.value);
+};
+
+const removeFavorite = () => {
+    dogsStore.removeFavorite(selectedDogId.value);
+};
+
 
 const dogInfo = computed(() => {
     return dogsStore.dogsList.find((item) => {
         return item.id === selectedDogId.value;
     });
 });
+
+
 
 </script>

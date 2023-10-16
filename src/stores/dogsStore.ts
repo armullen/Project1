@@ -8,6 +8,9 @@ export const useDogsStore = defineStore('dogStore', () => {
 
     const dogsList = ref<Array<Dog>>([]);
 
+
+    //add and delete functionality
+
     function addDog(input: DogInput): void {
 
         const dog: Dog = {
@@ -17,6 +20,14 @@ export const useDogsStore = defineStore('dogStore', () => {
 
         dogsList.value.push(dog);
     }
+    
+    function removeDog(dogId: number): void { 
+        const index = dogsList.value.findIndex((dog) => dog.id === dogId);
+        dogsList.value.splice(index, 1);
+    }
+
+
+    /////favorite dogs functions
 
     function removeFavorite(dogId: number): void {
         const index = dogsList.value.findIndex((dog) => dog.id === dogId);
@@ -27,11 +38,8 @@ export const useDogsStore = defineStore('dogStore', () => {
         dogsList.value[index].favorite = true;
     }
 
-    function removeDog(dogId: number): void { 
-        const index = dogsList.value.findIndex((dog) => dog.id === dogId);
-        dogsList.value.splice(index, 1);
-    }
-
+    //computed functions
+    
     const boys = computed(() => {
         return dogsList.value.filter((dog: Dog) => { return dog.gender = Genders.Male } )
     });

@@ -6,6 +6,7 @@
                 {{ dog.name }}
             </router-link>
         </li>
+        <!-- if no favorites need a message saying -->
     </ul>
 </template>
 

@@ -1,15 +1,13 @@
 
 <template>
-    <DogList :favoriteDog="true" />
+    <div>favorites</div>
+    <p> {{ store.favorite }} </p>
 </template>
 
 
 <script setup lang="ts">
-    import { DogList } from "../../components";
-    // import { computed } from 'vue';
-    // import { favorite } from "../../stores";
+import { useDogsStore }  from '../../stores';
 
-    // const favoriteDog = computed (() => {
-    //         return favorite.value.filter ((dog: Dog) => dog.favorite === true);
-    //     });
+    const store = useDogsStore();
+   
 </script>

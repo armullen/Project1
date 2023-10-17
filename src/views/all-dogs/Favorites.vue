@@ -1,7 +1,12 @@
 
 <template>
-    <div>favorites</div>
-    <p> {{ store.favorite }} </p>
+    <ul>
+        <li v-for="dog in store.favorite" :key="dog.id">
+            <router-link :to="`/dogs/${dog.id}`">
+                {{ dog.name }}
+            </router-link>
+        </li>
+    </ul>
 </template>
 
 
